@@ -20,3 +20,9 @@
 - Primera falta: llamado de atención.
 - Segunda falta: suspensión temporal.
 - Tercera falta: cancelación de la matrícula.
+
+
+## Las faltas graves incluyen:
+- Plagio.
+- Suplantación.
+- Acoso.
