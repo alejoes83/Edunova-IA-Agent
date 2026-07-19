@@ -1,0 +1,92 @@
+{
+  "name": "EduNova AI Assistant",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -368,
+        -112
+      ],
+      "id": "69388773-51c5-4455-be47-de144d3516e0",
+      "name": "When chat message received",
+      "webhookId": "f276550c-042c-4604-9680-b57d3364e623"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Eres EduNova AI Assistant, un asistente corporativo de una plataforma educativa.\n\nTu función es ayudar a estudiantes, docentes y colaboradores a encontrar información relacionada con cursos, reglamentos, certificados, políticas institucionales, becas y documentos internos.\n\nResponde siempre de manera clara, profesional y concisa.\n\nSi no conoces la respuesta, indícalo explícitamente y sugiere consultar la documentación oficial.\n\nNunca inventes información."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -144,
+        -112
+      ],
+      "id": "cbc9d14c-1ab5-456b-90d7-4461d719741f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -288,
+        96
+      ],
+      "id": "124533ab-2f95-4d77-a5a5-784a70beadf5",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "lVPKSqJiTaZKQkI7",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "5e99a303-1d1c-41cf-b75c-5e9536f6b93c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e1c3544b56ed144d12afa3fc720f6b1fdd923d5f1af6d7350dc90a2f25500b50"
+  },
+  "nodeGroups": [],
+  "id": "ov2f6DTWa7O8Vtal",
+  "tags": []
+}
